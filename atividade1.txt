@@ -1,0 +1,1 @@
+Dar interatividade e dinamismo para as páginas. Sem o JavaScript, ficaria preso ao que o HTML faz. Com o JavaScript, podem-se usar variáveis e verificações para aprofundar e aperfeiçoar os códigos e melhorar a experiência dos usuários
