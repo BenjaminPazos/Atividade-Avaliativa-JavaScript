@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamanho Aleatório</title>
+</head>
+<body>
+    <h1 class="texto">Texto aleatório</h1>
+    <script>
+        let titulo = document.querySelector('.texto')
+        titulo.innerText = "novo texto"    
+        titulo.style.color = "red"
+        titulo.style.fontSize = Math.random() * (100 - 30) + 30 + "px";
+        </script>
+</body>
+</html>
