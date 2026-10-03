@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listeners</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="imagem" src="https://static.wikia.nocookie.net/gravityfalls/images/e/e4/BillCipherCropped.png/revision/latest/scale-to-width-down/284?cb=20211117043712"
+        height="600px">
+
+    <p></p>
+    <button class="botao">
+        ღილაკი
+    </button>
+
+    <script>
+
+        let estado = true;
+
+        let paragrafo = document.querySelector("p")
+
+        let imagem = document.querySelector("img")
+
+        let botao = document.querySelector("button")
+
+        imagem.onclick = clicou
+        imagem.onmouseenter = mouseou
+        imagem.onmouseleave = leavear
+        imagem.onmousemove = moveou
+        function clicou() {
+            paragrafo.textContent = "Para de me cutucar... ꯍꯧꯖꯤꯛ ꯍꯧꯖꯤꯛ ꯊꯤꯡꯖꯤꯅꯕꯥ ꯌꯥꯏ꯫"
+        }
+        function mouseou() {
+            paragrafo.textContent = "Para de me mousear...  Тый кызытак чарнен кертат"
+        }
+        function moveou() {
+            paragrafo.textContent = "Está fazendo cocegas... ཁྱོད་ཀྱིས་ད་ལྟོ་རང་བཀག་ཚུགས"
+        }
+        function leavear() {
+            paragrafo.textContent = "Que bom que saiu... Вы можаце спыніцца прама цяпер."
+        }
+        botao.onclick = function(){
+            if (estado){
+                estado = false
+                imagem.src = 'https://static.wikia.nocookie.net/pure-evil-wiki/images/3/37/AngryBill.webp/revision/latest/scale-to-width/360?cb=20240827172855'
+        } else {
+            estado = true
+            imagem.src = 'https://static.wikia.nocookie.net/gravityfalls/images/e/e4/BillCipherCropped.png/revision/latest/scale-to-width-down/284?cb=20211117043712'
+        }
+        }
+            
+    </script>
+</body>
+
+</html>
