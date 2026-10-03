@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura</title>
+</head>
+
+<body>
+    <p>Aventura: <span id="acoes">???</span> <span id="locais">???</span> <span id="complementos">???</span></p>
+    <button class="botao">
+        Sortear Aventura
+    </button>
+    <script>
+        let botao = document.querySelector('.botao')
+        let acoes = ["A Busca", "A Batalha", "O Resgate"]
+        let locais = ["na Floresta Sombria", "no Reino Perdido", "na Montanha Misteriosa"]
+        let complementos = ["do Dragão", "do Tesouro Esquecido", "da Espada Ancestral"]
+
+        botao.onclick = function () {
+            let acao = document.querySelector("body p #acoes")
+            acao.innerText = acoes[Math.floor(Math.random() * 3)]
+
+            let local = document.querySelector("body p #locais")
+            local.innerText = locais[Math.floor(Math.random() * 3)]
+
+            let complemento = document.querySelector("body p #complementos")
+            complemento.innerText = complementos[Math.floor(Math.random() * 3)]
+        }
+
+    </script>
+</body>
+
+</html>
