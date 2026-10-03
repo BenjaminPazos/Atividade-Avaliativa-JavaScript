@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            transition: all 0.3s;
+        }
+
+        body.claro {
+            background-color: white;
+            color: black;
+        }
+
+        body.escuro {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="" id="formPreferencias">
+        <div class="grupo">
+            <label for="">Tema:</label>
+            <select name="" id="tema">
+
+                <option value="claro">
+                    claro
+                </option>
+
+                <option value="escuro">
+                    escuro
+                </option>
+            </select>
+        </div>
+
+        <div class="grupo">
+            <button id="btnSalvar">
+                Salvar Preferências
+            </button>
+        </div>
+    </form>
+    <input type="text" value="">
+    <div id="mensagem"></div>
+
+
+    <script>
+
+
+        const body = document.querySelector('body');
+        const form = document.querySelector('#formPreferencias');
+        const tema = document.querySelector('#tema');
+
+        const temaSalvo = localStorage.getItem('tema');
+        if (tema) {
+            aplicarTema(temaSalvo)
+        }
+
+        form.addEventListener('submit', (evento) => {
+            evento.preventDefault();
+
+            const temaSelecionado = tema.value;
+
+            aplicarTema(temaSelecionado);
+            salvarTema(temaSelecionado);
+
+        })
+
+        function aplicarTema(temaSelecionado) {
+            body.classList.remove("claro", "escuro", "pink")
+            body.classList.add(temaSelecionado)
+
+            tema.value = temaSelecionado;
+        }
+
+        function salvarTema(temaSelecionado) {
+            localStorage.setItem('tema', temaSelecionado)
+        }
+
+        const campoTexto = document.querySelector("input")
+        const mensagem = document.querySelector("#mensagem")
+
+        campoTexto.addEventListener("input", () => {
+            let digitado = campoTexto.value
+
+            if (digitado.length > 3) {
+
+                if (digitado == "chocolate") {
+                    mensagem.innerText = "Eu amo sorvete de chocolate!"
+
+                } else if (digitado == "flocos") {
+                    mensagem.innerText = "Ahh, mas chocolate é o meu favorito..."
+
+                } else {
+                    mensagem.innerText = "Ahh, eu esperava um sabor de sorvete..."
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
