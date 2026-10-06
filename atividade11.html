@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome">
+    <div id="mensagemNome"></div>
+
+    <label for="email">E-mail:</label>
+    <input type="text" id="email">
+    <div id="mensagemEmail"></div>
+
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha">
+    <button id="mostrarSenha">Mostrar Senha</button>
+    <div id="mensagemSenha"></div>
+
+    <label for="confirmacao">Confirmação:</label>
+    <input type="password" id="confirmacao">
+    <div id="mensagemConfirmacao"></div>
+
+    <button id="botao">Cadastrar</button>
+    <div id="mensagem"></div>
+
+    <script>
+        let nome = document.querySelector("#nome")
+        let email = document.querySelector("#email")
+        let senha = document.querySelector("#senha")
+        let confirmacao = document.querySelector("#confirmacao")
+        let botao = document.querySelector("#botao")
+        let mensagemNome = document.querySelector("#mensagem")
+        let mensagemEmail = document.querySelector("#mensagemEmail")
+        let mensagemSenha = document.querySelector("#mensagemSenha")
+        let mensagemConfirmacao = document.querySelector("#mensagemConfirmacao")
+        let mostrarSenha = document.querySelector("#mostrarSenha")
+
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const senhaRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+        nome.addEventListener("input", function () {
+            if (nome.value.length < 3) {
+                mensagemNome.innerText = "O nome deve ter pelo menos 3 caracteres"
+            } else {
+                mensagemNome.innerText = "Tudo certo"
+            }
+        })
+        email.addEventListener("input", function () {
+            if (!emailRegex.test(email.value)) {
+                mensagemEmail.innerText = "E-mail inválido"
+                return false
+            } else {
+                mensagemEmail.innerText = "E-mail válido"
+                return true
+            }
+        })
+        senha.addEventListener("input", function () {
+            if (!senhaRegex.test(senha.value)) {
+                mensagemSenha.innerText = "Senha inválida"
+                return true
+
+            } else {
+                mensagemSenha.innerText = "Senha válida"
+                return false
+            }
+        })
+        confirmacao.addEventListener("input", function () {
+            if (senha.value == confirmacao.value) {
+                mensagemConfirmacao.innerText = "As senhas são iguais"
+                return true
+            } else {
+                mensagemConfirmacao.innerText = "As senhas não são iguais"
+                return false
+            }
+        })
+        mostrarSenha.addEventListener("click", function () {
+
+            if (senha.type == "password") {
+                senha.type = "text"
+                mostrarSenha.innerText = "Esconder senha"
+            } else {
+                senha.type = "password"
+                mostrarSenha.innerText = "Mostrar senha"
+            }
+
+        })
+    </script>
+</body>
+
+</html>
